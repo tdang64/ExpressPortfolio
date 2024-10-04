@@ -1,0 +1,56 @@
+<!-- 
+Thanh Tam Dang 301393448
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %>
+<body>
+    <%- include('partials/header') %>
+   
+
+    <section class="contact">
+        <h2 class="contactTitle">Contact</h2>
+        <span class="conDesc">Please fill the form bellow to connect!</span>
+        <form class="contactForm">
+            <input type="text" class="name" placeholder="Your Name" />
+            <input type="email" class="email" placeholder="Your Email" />
+            <textarea name="message" row="5" class="msg" placeholder="Your Message"></textarea>
+            <button type='submit' value='send' class="submitBtn">Submit</button>
+            <div class="links">
+                <img src="./images/Facebook.png" alt="Facebook" class="linkx" />
+                <img src="./images/ins.png" alt="Instagram" class="linkx" />
+                <img src="./images/X.png" alt="X" class="linkx" />
+                <img src="./images/Threads.png" alt="Threads" class="linkx" />
+            </div>
+    <%- include('partials/footer') %>
+    <script>
+        //function to capture informations from the form
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submitBtn', (event) => {
+            event.preventDefault(); // Prevent actual form submission
+
+            // Retrieve values from the form fields
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const contactNumber = document.getElementById('contactNumber').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('msg').value;
+
+            // Store the data in local storage
+            localStorage.setItem('contactData', JSON.stringify({
+                firstName,
+                lastName,
+                contactNumber,
+                email,
+                message
+            }));
+            window.location.href = '/'; // Redirect to the home page
+        });
+        // function to display hidden content
+        document.getElementById("toggle-button").onclick = function() {
+            const panel = document.getElementById("panel-content");
+            panel.style.display = (panel.style.display === "none" || panel.style.display === "") ? "block" : "none";
+        };
+    </script>
+</body>
+</html>

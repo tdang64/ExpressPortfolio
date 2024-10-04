@@ -1,0 +1,30 @@
+<!-- Thanh Tam Dang 301393448 -->
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <section class="hihi">
+    <div class="index-container">
+      <h1 class="name">Thanh Tam Dang Portfolio</h1>
+      <p>Every line of code is a step in the journey to create an amazing online experience for users</p>
+    
+    </div>
+    <div class="index-buttons"> 
+        <a href="/about" class="button">About Me</a>
+    </div>
+  
+    </main>
+  </section>
+    <script>
+      
+      const contactData = JSON.parse(localStorage.getItem('contactData'));
+      if (contactData) {
+          console.log('Submitted Data:', contactData);
+          localStorage.removeItem('contactData'); 
+      }
+  </script>
+  <%- include('partials/footer') %>
+</body>
+</html>
